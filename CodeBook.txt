@@ -1,0 +1,130 @@
+
+#Codebook
+
+##Introduction
+
+This Codebook describes the variables and data used for the submission for the Coursera 'Getting and Cleaning Data' course project.
+
+##Original Data
+
+The original source for the data is:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+
+The original data was derived by the following method:
+
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed 
+six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) 
+on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity 
+at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been 
+randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding 
+windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion 
+components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed 
+to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features 
+was obtained by calculating variables from the time and frequency domain.
+
+Attribute Information:
+
+For each record in the dataset it is provided: 
+- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration. 
+- Triaxial Angular velocity from the gyroscope. 
+- A 561-feature vector with time and frequency domain variables. 
+- Its activity label. 
+- An identifier of the subject who carried out the experiment.
+
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. 
+These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using 
+a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the 
+acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using 
+another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ 
+and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, 
+tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, 
+fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+##Data required for this course project
+
+The course project only requires the measurements from the mean and standard deviation for each measurement in the data. This could be
+interpreted in different ways but for this submission it has been assumed to mean the variables calculated from the signal data i.e. 
+the variables ending with "-mean()" and "-std()" . Not the "-meanFreq()" or any of the additional calculated vectors in the data set that
+contain the word 'mean'.
+
+This leads to the 66 variables listed on the left below. These names were expanded to the labels on the right hand side below based on the
+descriptions in the original data ReadMe file and whether they are Time or Frequency measurements. 
+
+
+"tBodyAcc-mean()-X" 			TimeBodyAccelerometerXaxis-mean
+"tBodyAcc-mean()-Y" 			TimeBodyAccelerometerYaxis-mean
+"tBodyAcc-mean()-Z" 			TimeBodyAccelerometerZaxis-mean
+"tBodyAcc-std()-X" 				TimeBodyAccelerometerXaxis-std
+"tBodyAcc-std()-Y" 				TimebodyAccelerometerYaxis-std
+"tBodyAcc-std()-Z" 				TimebodyAccelerometerZaxis-std
+"tGravityAcc-mean()-X" 			TimeGravityAccelerometerXaxis-mean
+"tGravityAcc-mean()-Y" 			TimeGravityAccelerometerYaxis-mean
+"tGravityAcc-mean()-Z" 			TimeGravityAccelerometerZaxis-mean
+"tGravityAcc-std()-X" 			TimeGravityAccelerometerXaxis-std
+"tGravityAcc-std()-Y" 			TimeGravityAccelerometerYaxis-std
+"tGravityAcc-std()-Z" 			TimeGravityAccelerometerZaxis-std
+"tBodyAccJerk-mean()-X" 		TimeBodyAccelerometerJerkXaxis-mean
+"tBodyAccJerk-mean()-Y" 		TimebodyAccelerometerJerkYaxis-mean
+"tBodyAccJerk-mean()-Z" 		TimeBodyAccelerometerJerkZaxis-mean
+"tBodyAccJerk-std()-X" 			TimeBodyAccelerometerJerkXaxis-std
+"tBodyAccJerk-std()-Y" 			TimeBodyAccelerometerJerkYaxis-std
+"tBodyAccJerk-std()-Z" 			TimeBodyAccelerometerJerkZaxis-std
+"tBodyGyro-mean()-X" 			TimeBodyGyroscopeXaxis-mean
+"tBodyGyro-mean()-Y" 			TimeBodyGryoscopeYaxis-mean
+"tBodyGyro-mean()-Z" 			TimeBodyGryoscopeZaxis-mean
+"tBodyGyro-std()-X" 			TimeBodyGyroscopeXaxis-std
+"tBodyGyro-std()-Y" 			TimeBodyGyroscopeYaxis-std
+"tBodyGyro-std()-Z" 			TimeBodyGyroscopeZaxis-std
+"tBodyGyroJerk-mean()-X" 		TimeBodyGyroscopeJerkXaxis-mean
+"tBodyGyroJerk-mean()-Y" 		TimeBodyGyroscopeJerkYaxis-mean
+"tBodyGyroJerk-mean()-Z" 		TimeBodyGyroscopeJerkZaxis-mean
+"tBodyGyroJerk-std()-X" 		TimeBodyGyroscopeJerkXaxis-std
+"tBodyGyroJerk-std()-Y" 		TimeBodyGyroscopeJerkYaxis-std
+"tBodyGyroJerk-std()-Z" 		TimeBodyGyroscopeJerkZaxis-std
+"tBodyAccMag-mean()" 			TimeBodyAccelerometerMagnitude-mean
+"tBodyAccMag-std()" 			TimeBodyAccelerometerMagnitude-std
+"tGravityAccMag-mean()" 		TimeGravityAccelerometerMagnitude-mean
+"tGravityAccMag-std()" 			TimeGravityAccelerometer-std
+"tBodyAccJerkMag-mean()" 		TimeBodyAccelerometerJerkMagnitude-mean
+"tBodyAccJerkMag-std()" 		TimeBodyAccelerometerJerkMagnitude-std
+"tBodyGyroMag-mean()" 			TimeBodyGyroscopeMagnitude-mean
+"tBodyGyroMag-std()" 			TimeBodyGryoscopeMagnitude-std
+"tBodyGyroJerkMag-mean()" 		TimeBodyGryoscopeJerkMagnitude-mean
+"tBodyGyroJerkMag-std()" 		TimeBodyGyroscopeJerkMagnitude-std
+"fBodyAcc-mean()-X" 			FrequencyBodyAccelerometerXaxis-mean
+"fBodyAcc-mean()-Y" 			FrequencyBodyAcceleromoeterYaxis-mean
+"fBodyAcc-mean()-Z" 			FrequencyBodyAccelerometerZaxis-mean
+"fBodyAcc-std()-X" 				FrequencyBodyAccelerometerXaxis-std
+"fBodyAcc-std()-Y" 				FrequencyBodyAccelerometerYaxis-std
+"fBodyAcc-std()-Z" 				FrequencyBodyAccelerometerZaxis-std
+"fBodyAccJerk-mean()-X" 		FrequencyBodyAccelerometerJerkXaxis-mean
+"fBodyAccJerk-mean()-Y" 		FrequencyBodyAccelerometerJerkYaxis-mean
+"fBodyAccJerk-mean()-Z" 		FrequencyBodyAccelerometerJerkZaxis-mean
+"fBodyAccJerk-std()-X" 			FrequencyBodyAccelerometerJerkXaxis-std
+"fBodyAccJerk-std()-Y" 			FrequencyBodyAccelerometerJerkYaxis-std
+"fBodyAccJerk-std()-Z" 			FrequencyBodyAccelerometerJerkZaxis-std
+"fBodyGyro-mean()-X" 			FrequencyBodyGyroscopeXaxis-mean
+"fBodyGyro-mean()-Y" 			FrequencyBodyGyroscopeYaxis-mean
+"fBodyGyro-mean()-Z" 			FrequencyBodyGryoscopeZaxis-mean
+"fBodyGyro-std()-X" 			FrequencyBodyGyroscopeXaxis-std
+"fBodyGyro-std()-Y" 			FrequencyBodyGyroscopeYaxis-std
+"fBodyGyro-std()-Z" 			FrequencyBodyGryoscopeZaxis-std
+"fBodyAccMag-mean()" 			FrequencyBodyAccelerometerMagnitude-mean
+"fBodyAccMag-std()" 			FrequencyBodyAccelerometerMagnitude-std
+"fBodyBodyAccJerkMag-mean()" 	FrequencyBodyAccelerometerJerkMagnitude-mean
+"fBodyBodyAccJerkMag-std()" 	FrequencyBodyAccelerometerJerkMagnitude-std
+"fBodyBodyGyroMag-mean()" 		FrequencyBodyGyroscopeMagnitude-mean
+"fBodyBodyGyroMag-std()" 		FrequencyBodyGyroscopeMagnitude-std
+"fBodyBodyGyroJerkMag-mean()" 	FrequencyBodyGryoscopeJerkMagnitude-mean
+"fBodyBodyGyroJerkMag-std()" 	FrequencyBodyGyroscopeJerkMagnitude-std
+
