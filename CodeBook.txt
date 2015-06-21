@@ -58,7 +58,7 @@ the variables ending with "-mean()" and "-std()" . Not the "-meanFreq()" or any 
 contain the word 'mean'.
 
 This leads to the 66 variables listed on the left below. These names were expanded to the labels on the right hand side below based on the
-descriptions in the original data ReadMe file and whether they are Time or Frequency measurements. 
+descriptions in the original data ReadMe file and whether they are Time or Frequency measurements with the units specified in the above source data description. 
 
 
 "tBodyAcc-mean()-X" 			TimeBodyAccelerometerXaxis-mean
