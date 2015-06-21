@@ -1,9 +1,4 @@
 
-## Download the data and unzip it
-url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(url, destfile = "./Dataset.zip")
-unzip("./Dataset.zip", exdir = "./Dataset")
-
 ## Read the necessary files into R
 
 y_test <- read.table("./Dataset/UCI HAR Dataset/test/y_test.txt")
