@@ -3,9 +3,13 @@
 This ReadMe documents the submission for the Coursera 'Getting and Cleaning Data' course project.
 
 There is also:
+
 CodeBook.MD that describes the variables and data. 
+
 Labels.txt with the tidy column names applied to the x data
+
 run_analysis.R script file with code used to produce the data
+
 TidyData.txt with the independent tidy data set with the average of each variable for each subject and activity
 
 
@@ -25,11 +29,17 @@ The following code reads the files contained in the zip files that are needed in
 
 
 y_test <- read.table("./Dataset/UCI HAR Dataset/test/y_test.txt")
+
 x_test <- read.table("./Dataset/UCI HAR Dataset/test/X_test.txt")
+
 subject_test <- read.table("./Dataset/UCI HAR Dataset/test/subject_test.txt")
+
 y_train <- read.table("./Dataset/UCI HAR Dataset/train/y_train.txt")
+
 x_train <- read.table("./Dataset/UCI HAR Dataset/train/X_train.txt")
+
 subject_train <- read.table("./Dataset/UCI HAR Dataset/train/subject_train.txt")
+
 labels <- read.table("./Dataset/UCI HAR Dataset/features.txt", stringsAsFactors=FALSE)
 
 
@@ -37,7 +47,9 @@ labels <- read.table("./Dataset/UCI HAR Dataset/features.txt", stringsAsFactors=
 Next the test and train datasets are joined using the rbind function for the 'x data', 'y data' and subject list.
 
 x_total <- rbind(x_test, x_train)
+
 y_total <- rbind(y_test, y_train)
+
 subjects <- rbind(subject_test, subject_train)
 
 
@@ -47,6 +59,7 @@ The subset of columns meeting this criteria are stored in a dataframe called 'la
 named with 'FrequencyMean' making 79 variables in total.
 
 ChooseColumns <- grepl("-mean|-std", labels[,2])
+
 labels <- subset(labels[,2], ChooseColumns)
 
 ### subset the x data for the columns containing mean or std
@@ -59,7 +72,9 @@ x_subset <- subset(x_total, select = ChooseColumns)
 This step removes the additional columns named 'meanFreq' which it has been chosen not to include in this submission. This step could be removed if it was preferred to include them.
 
 ChooseColumns <- !grepl("meanFreq", labels)
+
 labels <- subset(labels, ChooseColumns)
+
 x_subset <- subset(x_subset, select = ChooseColumns)
 
 
@@ -68,6 +83,7 @@ The tidy version of the column names from the original data were created in a se
 
 
 labels2 <- labels <- read.table("./LabelNames.txt", stringsAsFactors = FALSE)
+
 labels2 <- labels2[,2]
 
 
@@ -75,7 +91,9 @@ labels2 <- labels2[,2]
 The columns in the x data are named with the tidy names here and names are also given to the activity and subject data
 
 colnames(y_total) <- ("Activity")
+
 colnames(x_subset) <- (labels2)
+
 colnames(subjects) <- ("Subject")
 
 
@@ -83,10 +101,15 @@ colnames(subjects) <- ("Subject")
 The numerical activity codes are replaced with the actual activity names here
 
 y_total$Activity[which(y_total$Activity==1)] <- "Walking"
+
 y_total$Activity[which(y_total$Activity==2)] <- "Walking_Upstairs"
+
 y_total$Activity[which(y_total$Activity==3)] <- "Walking_Downstairs"
+
 y_total$Activity[which(y_total$Activity==4)] <- "Sitting"
+
 y_total$Activity[which(y_total$Activity==5)] <- "Standing"
+
 y_total$Activity[which(y_total$Activity==6)] <- "Laying"
 
 
